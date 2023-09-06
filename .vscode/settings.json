@@ -2,5 +2,13 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "files.associations": {
+    "algorithm": "cpp",
+    "queue": "cpp",
+    "ostream": "cpp",
+    "sstream": "cpp",
+    "vector": "cpp",
+    "iostream": "cpp"
+  }
 }
