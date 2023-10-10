@@ -4,18 +4,18 @@
 
 using namespace std;
 
-bool check(long l) {
-    if (l < 5 && l != 2) return true;
-    if ((l - 2) % 5 == 0) return false;
+bool isOne(long long k) {
+    if (k < 5 && k != 2) return true; // 11011 중, 가운데 0 이 아닐 때는 true
+    if (k % 5 == 2) return false;
 
-    return check(l / 5);
+    return isOne(k / 5);
 }
 
 int solution(int n, long long l, long long r) {
     int answer = 0;
-    for (long long i = l - 1; i < r; i++) {
-        // cout << i << endl;
-        if (check(i)) answer++;
+    l--; r--;
+    for (long long i = l; i <= r; i++) {
+        if (isOne(i)) answer++;
     }
     return answer;
 }
