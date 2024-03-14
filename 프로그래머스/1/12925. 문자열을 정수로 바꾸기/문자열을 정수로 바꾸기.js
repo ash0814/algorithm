@@ -8,6 +8,9 @@ function solution(s) {
         i++;
     }
     while (i < s.length) {
+        if (!(48 <= s[i].charCodeAt(0) && s[i].charCodeAt(0) <= 58)) {
+            return "NAN";
+        }
         answer = answer * 10 + (s[i].charCodeAt(0) - 48);
         i++;
     }
