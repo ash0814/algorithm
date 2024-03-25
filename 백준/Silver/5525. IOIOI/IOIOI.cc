@@ -2,14 +2,6 @@
 
 using namespace std;
 
-string makeP(int n)
-{
-	string res = "I";
-	for (int i = 0; i < n; i++)
-		res += "OI";
-	return res;
-}
-
 int main()
 {
 	int n, m;
@@ -18,15 +10,21 @@ int main()
 	cin >> str;
 	int cnt = 0;
 
-	string p = makeP(n);
-
-	size_t found = str.find(p);
-	string cut = str;
-	while (found != string::npos)
+	for (int i = 0; i < m; i++)
 	{
-		cnt++;
-		cut = cut.substr(found + 1);
-		found = cut.find(p);
+		int ioi = 0;
+		if (str[i] == 'I')
+		{
+			while(str[i+1] == 'O' && str[i+2] == 'I') {
+				ioi++;
+				if (ioi == n) {
+					cnt++;
+					ioi--;
+				}
+				i+= 2;
+			}
+			ioi = 0;
+		}
 	}
 	cout << cnt;
 }
