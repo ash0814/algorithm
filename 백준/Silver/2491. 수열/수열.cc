@@ -7,28 +7,26 @@ int main()
 {
 	int N;
 	cin >> N;
-	int big[100001] = {0, };
-	int small[100001] = {0, };
 	int list[100001] = {0, };
 
 	for (int i = 0; i < N; i++) {
 		cin >> list[i];
 	}
-	big[0] = 1;
-	small[0] = 1;
+	int big = 1;
+	int small = 1;
 	int res = 1;
 	for (int i = 1; i < N; i++) {
 		if (list[i] > list[i - 1]) {
-			small[i] = 1;
-			big[i] = big[i-1] + 1;
+			small = 1;
+			big++;
 		} else if (list[i] < list[i-1]) {
-			small[i] = small[i - 1] + 1;
-			big[i] = 1;
+			small++;
+			big = 1;
 		} else {
-			small[i] = small[i-1] + 1;
-			big[i] = big[i-1] + 1;
+			small++;
+			big++;
 		}
-		res = max(res, max(small[i], big[i]));
+		res = max(res, max(small, big));
 	}
 
 	cout << res;
