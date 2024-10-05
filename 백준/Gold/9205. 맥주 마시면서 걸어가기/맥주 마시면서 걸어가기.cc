@@ -13,15 +13,15 @@ void solution()
 
 	int x, y;
 	cin >> x >> y;
-	pair<int, int> start = {x + 32768, y+32768};
+	pair<int, int> start = {x, y};
 
 	vector<pair<int, int>> coord;
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
-		coord.push_back({x+32768, y+32768});
+		coord.push_back({x, y});
 	}
 	cin >> x >> y;
-	pair<int, int> penta = {x + 32768, y+32768};
+	pair<int, int> penta = {x, y};
 
 
 	bool visited[101] = {0, };
